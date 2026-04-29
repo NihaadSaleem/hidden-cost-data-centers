@@ -1,0 +1,30 @@
+name: Update Data
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # runs daily
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run script
+        run: python update_data.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "bot"
+          git config user.email "bot@example.com"
+          git add data.json
+          git commit -m "Auto update data" || echo "No changes"
+          git push
