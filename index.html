@@ -16,10 +16,19 @@
   <p>An open-source tracker showing the energy, water, carbon, and community costs behind AI and cloud infrastructure.</p>
 
   <div class="card">
-    <h2>Electricity Demand</h2>
-    <div class="number">415 TWh</div>
-    <p>Estimated global data-center electricity consumption in 2024.</p>
-  </div>
+  <h2>Electricity Demand</h2>
+  <div class="number" id="electricity">Loading...</div>
+  <p id="note"></p>
+</div>
+
+<script>
+fetch('data.json')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('electricity').innerText = data.electricity_twh + " TWh";
+    document.getElementById('note').innerText = data.note + " (Updated: " + data.last_updated + ")";
+  });
+</script>
 
   <div class="card">
     <h2>Why this matters</h2>
