@@ -1,5 +1,14 @@
 {
-  "electricity_twh": 415,
   "last_updated": "2026-04-28",
-  "note": "Global data center electricity consumption estimate"
-}
+  "energy_twh": 415,
+  "emissions_factor_kg_per_kwh": 0.38,
+  "electricity_price_cents_per_kwh": 16.5,
+  "energy_pressure_score": 72,
+  "carbon_pressure_score": 61,
+  "price_pressure_score": 58,
+  "data_center_cost_index": 64,
+  "sources": [
+    "IEA Energy and AI report",
+    "EPA eGRID",
+    "EIA Open Data"
+  ]
